@@ -2,7 +2,7 @@ import React from 'react';
 import './ActivityDetails.css';
 import img from '../../img/personImg.jpg'
 
-const ActivityDetails = ({breaksTime,setBreakTime}) => {
+const ActivityDetails = ({setBreakTime}) => {
         const {exerciseTime,breakTime}=JSON.parse(localStorage.getItem('exerciseInfo')) || {
             breakTime:0,
             exerciseTime:0
