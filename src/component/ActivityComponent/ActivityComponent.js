@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import DisplayData from '../DisplayData/DisplayData';
 import './ActivityComponent.css'
 
-const ActivityComponent = ({setExercisesTime}) => {
+const ActivityComponent = ({setExercisesTime,exercisesTime}) => {
     const [exercises,setExercises] =useState([]);
     useEffect(() =>{
         fetch('fakeDb.json')
@@ -16,7 +16,7 @@ const ActivityComponent = ({setExercisesTime}) => {
             <p className='fw-bold mt-3'>Select Todays Exercise </p>
             <div className="row row-cols-1 row-cols-md-3 g-4">
                 {
-                    exercises.map(exercise => <DisplayData key={exercise._id} exercise={exercise} setExercisesTime={setExercisesTime}/>)
+                    exercises.map(exercise => <DisplayData key={exercise._id} exercise={exercise} exercisesTime={exercisesTime} setExercisesTime={setExercisesTime}/>)
                         
                 }
             </div>

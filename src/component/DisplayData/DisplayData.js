@@ -12,7 +12,13 @@ const DisplayData = ({exercise,setExercisesTime}) => {
                         <p className="card-text">{text}</p>
                         <h6>For Age : {forAge}</h6>
                         <h6>Time Required : {time}s</h6>
-                        <button className='btn-custom' onClick={()=>setExercisesTime(prev=>prev+parseInt(time))}>
+                        <button className='btn-custom' onClick={()=>{
+                            setExercisesTime(prev=>prev+parseInt(time));
+                            let exerciseInfo = JSON.parse(localStorage.getItem('exerciseInfo'));
+                            localStorage.setItem('exerciseInfo', JSON.stringify({...exerciseInfo,
+                                exerciseTime:exerciseInfo.exerciseTime+parseInt(time)
+                            }));
+                        }}>
                             Add To List
                         </button>
                     </div>

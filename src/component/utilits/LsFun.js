@@ -3,17 +3,28 @@ function LsGetData(fun){
     fun(exerciseInfo) ;
 }
 
-function LsSaveData(breaks,exercisesTime){
-    let exerciseInfo=JSON.parse(localStorage.getItem('exerciseInfo'));
-    if(exerciseInfo){
-        exerciseInfo.breaks=breaks;
-        exerciseInfo.exercisesTime=exercisesTime;
-        localStorage.setItem('exerciseInfo',JSON.stringify(exerciseInfo));
-    }else{
-        localStorage.setItem('exerciseInfo',JSON.stringify({
-            breaks:breaks,
-            exercisesTime:exercisesTime
-        }));
-    }
-}
-export {LsSaveData, LsGetData};
+// function LsSaveData(exercisesTime,breaks,cb){
+//     let exerciseInfo=JSON.parse(localStorage.getItem('exerciseInfo'));
+//     if(exerciseInfo){
+//         exercisesTime && localStorage.setItem('exerciseInfo',JSON.stringify({...exerciseInfo,
+//         exercisesTime
+//         }));
+//         breaks && localStorage.setItem('exerciseInfo',JSON.stringify({...exerciseInfo,
+//         breaks
+//         }));
+//     }else{
+//         cb();
+//         exercisesTime && localStorage.setItem('exerciseInfo',JSON.stringify({
+//             breaks:0,
+//             exercisesTime
+//         }));
+//         breaks && localStorage.setItem('exerciseInfo',JSON.stringify({
+//             breaks,
+//             exercisesTime:0
+//         }));
+        
+//     }
+// }
+
+
+export { LsGetData};
