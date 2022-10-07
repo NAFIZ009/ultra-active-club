@@ -1,7 +1,7 @@
 import React from 'react';
 import './DisplayData.css'
 
-const DisplayData = ({exercise}) => {
+const DisplayData = ({exercise,setExercisesTime}) => {
     const {text,picture,name,forAge,time}=exercise;
     return (
         <div className="col">
@@ -11,8 +11,8 @@ const DisplayData = ({exercise}) => {
                         <h5 className="card-title">{name}</h5>
                         <p className="card-text">{text}</p>
                         <h6>For Age : {forAge}</h6>
-                        <h6>Time Required : {time}</h6>
-                        <button>
+                        <h6>Time Required : {time}s</h6>
+                        <button className='btn-custom' onClick={()=>setExercisesTime(prev=>prev+parseInt(time))}>
                             Add To List
                         </button>
                     </div>
