@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './ActivityDetails.css';
 import img from '../../img/personImg.jpg'
 
-const ActivityDetails = ({exercisesTime,LsexerciseInfo}) => {
-    const [breaks,setBreaks]=useState(0);
-        const {exerciseTime,breakTime}=JSON.parse(localStorage.getItem('exerciseInfo'));
+const ActivityDetails = ({breaksTime,setBreakTime}) => {
+        const {exerciseTime,breakTime}=JSON.parse(localStorage.getItem('exerciseInfo')) || {
+            breakTime:0,
+            exerciseTime:0
+        };
     function breakClickHandler(e) {
         const breakValue=e.target.innerHTML;
-        setBreaks(parseInt(breakValue.slice(0,2)));
+        setBreakTime(parseInt(breakValue.slice(0,2)));
         [...e.target.parentElement.children].forEach(element=>{
             element.style.backgroundColor='#ffff';
             element.style.color='#000000';
@@ -56,10 +58,10 @@ const ActivityDetails = ({exercisesTime,LsexerciseInfo}) => {
             <div className="exercise-details mt-5">
                 <h3>Exercise Details</h3>
                 <div className="exercise-time mt-3 w-100 d-flex justify-content-between px-4 align-items-center py-3">
-                    <h5>Exercise Time</h5><h5>{}</h5>
+                    <h5>Exercise Time</h5><h5>{exerciseTime}</h5>
                 </div>
                 <div className="break-time mt-3 w-100 d-flex justify-content-between align-items-center px-4 py-3">
-                    <h5>Break Time </h5><h5>{}</h5>
+                    <h5>Break Time </h5><h5>{breakTime}</h5>
                 </div>
             </div>
             <button className='btn btn-primary w-100 d-block mx-auto mt-5'>
